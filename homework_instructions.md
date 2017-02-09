@@ -1,12 +1,10 @@
 #Week of 14 Homework Node Express Handlebars
-
-### Overview
+_______________________________________________________
 
 In this assignment, you'll create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
 
-### Remember
-
 You will be fully capable of doing this homework by the end of Saturday's class.
+_______________________________________________________
 
 ### Before You Begin
 
@@ -19,37 +17,18 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 * Your app will store every burger in a database, whether devoured or not.
 
 * [Check out this video of the app for a run-through of how it works](burger_demo.mp4).
+_______________________________________________________
 
-## Instructions
+## Instructions - ALL INSTRUCTIONS REMAINING AS OF 12:25 PM 2/9/2017 HAVE BEEN ADDED TO THEIR RESPECTIVE FILES AND LEFT BELOW FOR REFERENCE.
+_______________________________________________________
 
 #### App Setup
-
-1. Create a GitHub repo called `burger` and clone it to your computer.
-
-2. Make a package.json file by running `npm init` from the command line.
-
-3. Install the Express npm package: `npm install express --save`.
-
-4. Create a server.js file.
-
-5. Install the Handlebars npm package: `npm install express-handlebars --save`.
-
-6. Install the method-override npm package: `npm install method-override --save`.
-
-7. Install the body-parser npm package: `npm install body-parser --save`.
-
-8. Install MySQL npm package: `npm install mysql --save`.
-
-10. Require the following npm packages inside of the server.js file:
-	* express
-	* method-override
-	* body-parser
+APP SETUP COMPLETE
+_______________________________________________________
 
 #### DB Setup:
 
-1. Inside your `burger` directory, create a folder named `db`.
-
-2. In the `db` folder, create a file named `schema.sql`. Write SQL queries this file that do the following:
+2. In `schema.sql`, write SQL queries this file that do the following:
 	* Create the `burgers_db`.
 	* Switch to or use the `burgers_db`.
 	* Create a `burgers` table with these fields:
@@ -58,7 +37,7 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 		* **devoured**: a boolean.
 		* **date**: a TIMESTAMP.
 
-4. Still in the `db` folder, create a `seeds.sql` file. In this file, write insert queries to populate the `burgers` table with at least three entries.
+4. In `seeds.sql`, write insert queries to populate the `burgers` table with at least three entries.
 
 7. Run the `schema.sql` and `seeds.sql` files into the mysql server from the command line
 
@@ -73,19 +52,16 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 
 	*
 	 Close out of the MySQL command line tool: `exit`.
+_______________________________________________________
 
 #### Config Setup:
 
-1. Inside your `burger` directory, create a folder named `config`.
-
-2. Create a `connection.js` file inside `config` directory.
-
+2. 
 	* Inside the `connection.js` file, setup the code to connect Node to MySQL.
 
 	* Export the connection.
 
-3. Create an `orm.js` file inside `config` directory.
-
+3.
 	* Import (require) `connection.js` into `orm.js`
 
 	* In the `orm.js` file, create the methods that will execute the necessary MySQL commands in the controllers. These are the methods you will need to use in order to retrieve and store data in your database.
@@ -94,90 +70,34 @@ You will be fully capable of doing this homework by the end of Saturday's class.
 		* `updateOne()` 
 
 	* Export the ORM object in `module.exports`.
+_______________________________________________________
 
 #### Model setup:
 
-* Inside your `burger` directory, create a folder named `models`.
+* Inside `burger.js`, import `orm.js` into `burger.js`
 
-	* In `models`, make a `burger.js` file.
+	* Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
 
-		* Inside `burger.js`, import `orm.js` into `burger.js`
-
-		* Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
-
-		* Export at the end of the `burger.js` file.
+	* Export at the end of the `burger.js` file.
+_______________________________________________________
 
 #### Controller setup:
-
-1. Inside your `burger` directory, create a folder named `controllers`.
-
-2. In `controllers`, create the `burgers_controller.js` file.
 
 3. Inside the `burgers_controller.js` file, import the following:
 	* Express
 	* `burger.js`
 
 4. Create the `router` for the app, and export the `router` at the end of your file.
+_______________________________________________________
 
 #### View setup:
 
-1. Inside your `burger` directory, create a folder named `views`.
+* Setup the `main.handlebars` file so it's able to be used by Handlebars.
 
-	* Create the `index.handlebars` file inside `views` directory.
+* Setup the `index.handlebars` to have the template that Handlebars can render onto.
 
-	* Create the `layouts` directory inside `views` directory.
-
-		* Create the `main.handlebars` file inside `layouts` directory.
-
-		* Setup the `main.handlebars` file so it's able to be used by Handlebars.
-
-		* Setup the `index.handlebars` to have the template that Handlebars can render onto.
-
-		* Create a button in `index.handlebars` that will submit the user input into the database.
+* Create a button in `index.handlebars` that will submit the user input into the database.
+_______________________________________________________
 
 #### Directory structure:
-All the recommended files and directories from the steps above should look like the following structure:
-```
-.
-├── config
-│   ├── connection.js
-│   └── orm.js
-│ 
-├── controllers
-│   └── burgers_controller.js
-│
-├── db
-│   ├── schema.sql
-│   └── seeds.sql
-│
-├── models
-│   └── burger.js
-│ 
-├── node_modules
-│ 
-├── package.json
-│
-├── public
-│   ├── assets
-│   │   ├── css
-│   │   │   └── burger_style.css
-│   │   └── img
-│   │       └── burger.png
-│   └── test.html
-│
-├── server.js
-│
-└── views
-    ├── index.handlebars
-    └── layouts
-        └── main.handlebars
-```
-
--------
-### One More Thing
-This is a really tough homework assignment, but we want you to put in your best effort to finish it. If you get stuck at any point, don't hesitate to contact a TA or your instructor.
-
-** Good Luck!**
-
-## Copyright
-Coding Boot Camp (C) 2016. All Rights Reserved.
+DIRECTORY STRUCTURE CREATED
