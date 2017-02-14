@@ -1,5 +1,22 @@
-* Inside `burger.js`, import `orm.js` into `burger.js`
+var orm = require('../config/orm.js');
 
-	* Also inside `burger.js`, create the code that will call the ORM functions using burger specific input for the ORM.
+var burgers = {
+	selectAll: function(cb) {
+		orm.selectAll("burgers", function(res) {
+		  cb(res);
+		});
+	},
+	insertOne: function(newObj, cb) {
+		orm.insertOne("burgers", newObj, function(res) {
+		  cb(res);
+		});
+	},
+	updateOne: function(newObj, objWithTargetId, cb) {
+		orm.updateOne("burgers", newObj, objWithTargetId, function(res) {
+		  cb(res);
+		});
+	},
+}
 
-	* Export at the end of the `burger.js` file.
+// Export the database functions for the controller (burgers_controller.js).
+module.exports = burgers;
