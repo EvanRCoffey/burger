@@ -1,8 +1,9 @@
 /*From the Cats example*/
 li {
-  background: #FAEBD7;
+  background: white;
   margin: 5px;
   padding: 5px;
+  width: 25%;
 }
 
 .label {
@@ -10,11 +11,16 @@ li {
 }
 
 .create-update-form {
-  background: aqua;
+  background: white;
   margin: 5px;
   padding: 5px;
+  width: 25%;
 }
 
 .form-group {
   margin-bottom: 5px;
+}
+
+h1 {
+	text-align: center;
 }

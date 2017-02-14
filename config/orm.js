@@ -56,9 +56,14 @@ var orm = {
     });
   },
   // * `updateOne()`
-  updateOne: function(table_name, newObj, objWithTargetId, cb) {
-    var queryString = "UPDATE ?? SET ? WHERE ?";
-    connection.query(queryString, [table_name, newObj, objWithTargetId], function(err, result) {
+// UPDATE burgers SET devoured=1 WHERE id=2;
+// The above line was tested and ran successfully in mySQL workbench
+// The code below seems to match that line identically.  Not sure what's wrong.
+  updateOne: function(table_name, targetString, stringWithTargetId, cb) {
+    // var queryString = "UPDATE ?? SET ? WHERE ?";
+    var queryString = "UPDATE " + table_name + " SET " + targetString + " WHERE " + stringWithTargetId;
+    // connection.query(queryString, [table_name, targetString, stringWithTargetId], function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }

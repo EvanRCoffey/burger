@@ -6,8 +6,6 @@ Homework for week 14 of the boot camp
 
  - To Do 10:35 AM 2/14 -
 
-Get "Add burger" button working correctly
+Get "DEVOUR BURGER" button to work - fix the "Put" query
 
-Get "Eat burger" button up and running
-
-Once you get the back-end finished, polish the front-end
+-I have no idea why this isn't working.  I ran it in mySQL workbench just fine but no matter what I do I can't get it to work through javascript

@@ -30,9 +30,9 @@ router.get("/", function(req, res) {
 //C - post - create burger
 router.post("/", function(req, res) {
   burgerJS.insertOne([
-    "burger_name", "devoured", "date"
+    "burger_name"
   ], [
-    req.body.name, req.body.sleepy, "2016-02-12 12:00:04"
+    req.body.name
   ], function() {
     res.redirect("/");
   });
@@ -51,10 +51,13 @@ router.get("/", function(req, res) {
 
 //U - put - change "devoured" to "false"
 router.put('/:id', function (req, res) {
-	var newBurger = req.body;
-	var idVar = {id: req.params.id} // Not sure if this is right.  'id' should be from /:id
+	var targetString = 'devoured=1';
+	var idVar = 'id=' + req.params.id;
+	console.log(targetString);
+	console.log(idVar);
+
 	//Change "devoured" of given id to false
-	burgerJS.updateOne("burgers", newBurger, idObj, function(data){
+	burgerJS.updateOne("burgers", targetString, idVar, function(data){
 		console.log('this works:', data);
 	});
   	res.redirect("/");
@@ -62,3 +65,6 @@ router.put('/:id', function (req, res) {
 
 // Export routes for server.js to use.
 module.exports = router;
+
+
+
