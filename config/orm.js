@@ -1,25 +1,67 @@
 var connection = require('./connection.js');
 
+// Helper function for SQL syntax.
+function printQuestionMarks(num) {
+  var arr = [];
+
+  for (var i = 0; i < num; i++) {
+    arr.push("?");
+  }
+
+  return arr.toString();
+}
+
+// Helper function for SQL syntax.
+function objToSql(ob) {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
 var orm = {
 	// * `selectAll()`
-  selectAll: function(database_name, cb) {
+  selectAll: function(table_name, cb) {
     var queryString = "SELECT * FROM ??";
-    connection.query(queryString, [database_name], function(err, result) {
+    connection.query(queryString, [table_name], function(err, result) {
+      if (err) {
+        throw err;
+      }
       cb(result);
     });
   },
   // * `insertOne()` 
-  insertOne: function(database_name, newObj, cb) {
-    var queryString = "INSERT INTO ?? SET ?";
+  insertOne: function(table, cols, vals, cb) {
+    var queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
     console.log(queryString);
-    connection.query(queryString, [database_name, newObj], function(err, result) {
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
       cb(result);
     });
   },
   // * `updateOne()`
-  updateOne: function(database_name, newObj, objWithTargetId, cb) {
+  updateOne: function(table_name, newObj, objWithTargetId, cb) {
     var queryString = "UPDATE ?? SET ? WHERE ?";
-    connection.query(queryString, [database_name, newObj, objWithTargetId], function(err, result) {
+    connection.query(queryString, [table_name, newObj, objWithTargetId], function(err, result) {
+      if (err) {
+        throw err;
+      }
       cb(result);
     });
   }

@@ -1,19 +1,13 @@
 # burger
 Homework for week 14 of the boot camp
 
- - To Do 9:24 2/14 -
 
- burger.js - Create the code that will call the ORM functions using burger specific input for the ORM.
- ^^^ DONE!!!! ^^^
 
- burger_style.css - Style the page (Copy-pasted stuff from cats example)
- ^^^ DONE FOR NOW ^^^
 
- index.handlebars - Finish the html for the page (Copy-pasted stuff from cats example)
- ^^^ DONE FOR NOW ^^^
+ - To Do 10:35 AM 2/14 -
 
- test.html - Figure out what this file is for (Not found in cats example)
- ^^^ NO IDEA! ^^^
+Get "Add burger" button working correctly
 
- burgers_controller.js - See what separates yours from the Cats example.  They use .router
- ^^^ DONE!!!! ^^^
+Get "Eat burger" button up and running
+
+Once you get the back-end finished, polish the front-end

@@ -1,8 +1,8 @@
-INSERT INTO burgers (burger_name, devoured, date)
-VALUES ("Whopper", FALSE, "2016-02-12 12:00:01");
+INSERT INTO burgers (burger_name, date)
+VALUES ("Whopper", "2016-02-12 12:00:01");
 
-INSERT INTO burgers (burger_name, devoured, date)
-VALUES ("Big Mac", FALSE, "2016-02-12 12:00:02");
+INSERT INTO burgers (burger_name, date)
+VALUES ("Big Mac", "2016-02-12 12:00:02");
 
-INSERT INTO burgers (burger_name, devoured, date)
-VALUES ("Whataburger", FALSE, "2016-02-12 12:00:03");
+INSERT INTO burgers (burger_name, date)
+VALUES ("Whataburger", "2016-02-12 12:00:03");

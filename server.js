@@ -19,9 +19,12 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
+// This line is needed to link your CSS
+app.use(express.static(process.cwd() + "/public"));
+
+
 // Import routes and give the server access to them.
 var routes = require("./controllers/burgers_controller.js");
-
 app.use("/", routes);
 
 

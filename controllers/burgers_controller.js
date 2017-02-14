@@ -29,15 +29,16 @@ router.get("/", function(req, res) {
 
 //C - post - create burger
 router.post("/", function(req, res) {
-	var newBurger = req.body;
-	//Add newBurger to database
-	burgerJS.insertOne("burgers_db", newBurger, function(data){
-		console.log('this works:', data);
-	});
-	res.redirect("/");
+  burgerJS.insertOne([
+    "burger_name", "devoured", "date"
+  ], [
+    req.body.name, req.body.sleepy, "2016-02-12 12:00:04"
+  ], function() {
+    res.redirect("/");
+  });
 });
 
-//R - get - load the burgers data from "burgers_db"
+//R - get - load the burgers data from "burgers"
 router.get("/", function(req, res) {
   	burgerJS.selectAll(function(data) {
 	    var burgerObject = {
@@ -53,7 +54,7 @@ router.put('/:id', function (req, res) {
 	var newBurger = req.body;
 	var idVar = {id: req.params.id} // Not sure if this is right.  'id' should be from /:id
 	//Change "devoured" of given id to false
-	burgerJS.updateOne("burgers_db", newBurger, idObj, function(data){
+	burgerJS.updateOne("burgers", newBurger, idObj, function(data){
 		console.log('this works:', data);
 	});
   	res.redirect("/");
