@@ -1,10 +1,4 @@
-# burger
-Homework for week 14 of the boot camp
-
-
-
-
- - To Do 10:35 AM 2/14 -
+ - To Do 1:17 PM 2/14 -
 
 Get "DEVOUR BURGER" button to work - fix the "Put" query
 

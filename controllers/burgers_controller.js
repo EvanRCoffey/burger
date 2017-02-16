@@ -56,7 +56,6 @@ router.put('/:id', function (req, res) {
 	console.log(targetString);
 	console.log(idVar);
 
-	//Change "devoured" of given id to false
 	burgerJS.updateOne("burgers", targetString, idVar, function(data){
 		console.log('this works:', data);
 	});
