@@ -49,18 +49,30 @@ router.get("/", function(req, res) {
 	});
 });
 
-//U - put - change "devoured" to "false"
-router.put('/:id', function (req, res) {
-	var targetString = 'devoured=1';
-	var idVar = 'id=' + req.params.id;
-	console.log(targetString);
-	console.log(idVar);
+router.put("/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
 
-	burgerJS.updateOne("burgers", targetString, idVar, function(data){
-		console.log('this works:', data);
-	});
-  	res.redirect("/");
-})
+  console.log("condition", condition);
+
+  burgerJS.updateOne({
+    devoured: req.body.devoured
+  }, condition, function() {
+    res.redirect("/");
+  });
+});
+
+// //U - put - change "devoured" to "false"
+// router.put('/:id', function (req, res) {
+// 	var targetString = 'devoured=1';
+// 	var idVar = 'id = ' + req.params.id;
+// 	console.log(targetString);
+// 	console.log(idVar);
+
+// 	burgerJS.updateOne("burgers", targetString, idVar, function(data){
+// 		console.log('this works:', data);
+// 	});
+//   	res.redirect("/");
+// })
 
 // Export routes for server.js to use.
 module.exports = router;
